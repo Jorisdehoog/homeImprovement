@@ -58,3 +58,8 @@ for post in posts.find():
 print(posts.count_documents({}))
 
 # i can also follow this one: https://www.mongodb.com/blog/post/getting-started-with-python-and-mongodb
+
+# to start MongoDB service: 
+# net start MongoDB
+# net stop MongoDB
+
