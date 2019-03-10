@@ -1,6 +1,7 @@
 # the routes are the different URL's that the appl implements. 
 # Handlers for the appl routes are written as py functions, called view functions
 
+from flask import render_template
 from app import app
 
 
@@ -12,4 +13,26 @@ from app import app
 @app.route('/index')
 @app.route('/hello')
 def index():
-    return "Hello World, this is Joris!"
+    # create a fake user and some posts
+    user = {'username': 'Joris'}
+    posts = [
+        {
+            'author': {'username': 'John'},
+            'body': 'Beautiful day in Portland!'
+        },
+        {
+            'author': {'username': 'Susan'},
+            'body': 'The Avengers movie was so cool!'
+        }, 
+        {
+            'author': {'username': 'Joris'},
+            'body': 'Is this the right tutorial for me?'
+        },
+        {
+            'author': {'username': 'Joris'},
+            'body': 'I mean it could be if I would want to redo my website'
+        }
+    ]
+
+
+    return render_template('index.html', title='Home', user = user, posts = posts)
